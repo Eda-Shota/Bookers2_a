@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get "home/about"=>"homes#about"
   devise_for :users
   get 'search' => 'searches#search'
-
+  
+  resources :rooms, only: [:create, :show]
+  resources :messages, only: [:create]
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
     resources :book_comments, only: [:create, :destroy]
     #このように親子関係を持たせることで /books/:book_id/book_commentsの形のURLになり、params[:book_id]Bookのidが取得できる。

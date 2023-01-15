@@ -1,0 +1,6 @@
+  <div class="posts">
+    <%= form_with model:message,local:false do |f| %>
+      <%= f.text_field :message, class:"form-text-field" %>
+      <%= f.hidden_field :room_id, value: room.id %>
+    <% end %>
+  </div>
